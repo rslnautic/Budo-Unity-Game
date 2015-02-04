@@ -29,5 +29,11 @@ public class GameInput : MonoBehaviour {
 		} else {
 			xMovementP1 = 0;
 		}
+
+		if (Input.GetKey (jumpsP1)) {
+			jumpP1 = true;
+		} else {
+			jumpP1 = false;
+		}
 	}
 }
