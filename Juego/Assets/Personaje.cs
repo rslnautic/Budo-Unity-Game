@@ -39,46 +39,44 @@ public class Personaje : MonoBehaviour {
 
 
 	void FixedUpdate() {
-		float direction = 0;
-		bool frenando = false;
-		if (GameInput.xMovementP1 > 0.1f || GameInput.xMovementP1 < -0.1f) {
-			direction = GameInput.xMovementP1;
-			if(direction>0 && xlateralcurveposition >0.5f || direction < 0 && xlateralcurveposition <0.5f){
-				direction*=aceleracion;
-			} else {
-				direction*=aceleracionInversa;
-			}
-		} else {
-			frenando = true;
-			if(xlateralcurveposition > 0.5f)
-			{
-				direction =-frenado;
-			} else {
-				direction =frenado;
-			}
-		}
-		Mathf.Clamp (xlateralcurveposition,-1,1);   // Limita los valores minimos y maximos de una curva
-		
-		xlateralcurveposition += direction * Time.deltaTime;
-
-		if (frenando) {
-			if(xlateralcurveposition > 0.5f && direction >0 || xlateralcurveposition < 0.5f && direction <0)
-			{
-				xlateralcurveposition = 0.5f;
-			}
-		}
-
-		float lateralspeed = XCurve.Evaluate (xlateralcurveposition);
-		rigidbody2D.velocity = Vector2.right * maxSpeed * lateralspeed;
-
-		/////////////////////////////////////////////////////////////////////
 		if(GameInput.jumpP1 && moveState == MoveState.HELD){
 			jumpTimer = 0;
 			moveState = MoveState.JUMPING;
 		}
 		
-		
+		//moveState es el estado en el que esta el jugador, puede estar en el suelo(HELD), saltando(JUMPING),
+		//o cayendo(FALLING)
 		switch (moveState) {
+		case MoveState.HELD:
+			float direction = 0;
+			bool frenando = false;
+			if (GameInput.xMovementP1 > 0.1f || GameInput.xMovementP1 < -0.1f) {
+				direction = GameInput.xMovementP1;
+				if(direction>0 && xlateralcurveposition >0.5f || direction < 0 && xlateralcurveposition <0.5f){
+					direction*=aceleracion;
+				} else {
+					direction*=aceleracionInversa;
+				}
+			} else {
+				frenando = true;
+				if(xlateralcurveposition > 0.5f)
+				{
+					direction =-frenado;
+				} else {
+					direction =frenado;
+				}
+			}
+			Mathf.Clamp (xlateralcurveposition,-1,1);   // Limita los valores minimos y maximos de una curva	
+			xlateralcurveposition += direction * Time.deltaTime;
+			if (frenando) {
+				if(xlateralcurveposition > 0.5f && direction >0 || xlateralcurveposition < 0.5f && direction <0)
+				{
+					xlateralcurveposition = 0.5f;
+				}
+			}	
+			float lateralspeed = XCurve.Evaluate (xlateralcurveposition);
+			rigidbody2D.velocity = Vector2.right * maxSpeed * lateralspeed;
+			break;
 		case MoveState.JUMPING:
 			jumpTimer += Time.deltaTime;
 			float normalizedJumpTime = jumpTimer / jumpTime;
@@ -105,5 +103,6 @@ public class Personaje : MonoBehaviour {
 			rigidbody2D.velocity = vel2;
 			break;
 		}
+
 	}
 }
