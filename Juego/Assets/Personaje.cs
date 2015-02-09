@@ -11,13 +11,13 @@ public class Personaje : MonoBehaviour {
 	public float frenado = 12;
 
 	float xlateralcurveposition = 0.5f;
-
+	//RaycastHit2D hit;
 	
-	void OnCollisionEnter2D(Collision2D coll){
+	/*void OnCollisionEnter2D(Collision2D coll){
 		if (coll.gameObject.GetComponent<Platform> () != null) {
 			moveState = MoveState.HELD;
 		}
-	}
+	}*/
 
 	// Use this for initialization
 	void Start () {
@@ -31,8 +31,7 @@ public class Personaje : MonoBehaviour {
 	}
 	enum MoveState {HELD,JUMPING,FALLING}
 	
-	MoveState moveState = MoveState.FALLING;
-	
+	MoveState moveState = MoveState.FALLING;	
 	
 	public AnimationCurve jumpSpeedCurve;
 	public float jumpTime = 0.5f;
@@ -46,11 +45,16 @@ public class Personaje : MonoBehaviour {
 
 
 	void FixedUpdate() {
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
+		if (hit.collider != null) {
+			moveState = MoveState.HELD;
+		}
+
 		if(GameInput.jumpP1 && moveState == MoveState.HELD){
 			jumpTimer = 0;
 			moveState = MoveState.JUMPING;
 		}
-		
+
 		//moveState es el estado en el que esta el jugador, puede estar en el suelo(HELD), saltando(JUMPING),
 		//o cayendo(FALLING)
 		switch (moveState) {
