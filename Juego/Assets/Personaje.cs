@@ -13,7 +13,7 @@ public class Personaje : MonoBehaviour {
 	float xlateralcurveposition = 0.5f;
 
 	
-	void OnCollisionEnter(Collision coll){
+	void OnCollisionEnter2D(Collision2D coll){
 		if (coll.gameObject.GetComponent<Platform> () != null) {
 			moveState = MoveState.HELD;
 		}
@@ -31,7 +31,7 @@ public class Personaje : MonoBehaviour {
 	}
 	enum MoveState {HELD,JUMPING,FALLING}
 	
-	MoveState moveState = MoveState.HELD;
+	MoveState moveState = MoveState.FALLING;
 	
 	
 	public AnimationCurve jumpSpeedCurve;
