@@ -12,6 +12,13 @@ public class Personaje : MonoBehaviour {
 
 	float xlateralcurveposition = 0.5f;
 
+	
+	void OnCollisionEnter(Collision coll){
+		if (coll.gameObject.GetComponent<Platform> () != null) {
+			moveState = MoveState.HELD;
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
 	
