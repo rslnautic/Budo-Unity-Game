@@ -45,7 +45,8 @@ public class Personaje : MonoBehaviour {
 
 
 	void FixedUpdate() {
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
+		//static RaycastHit2D Raycast(Vector2 origin, Vector2 direction, float distance = Mathf.Infinity, int layerMask = DefaultRaycastLayers, float minDepth = -Mathf.Infinity, float maxDepth = Mathf.Infinity);
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 1.05f, 1 << LayerMask.NameToLayer("Platform"));
 		if (hit.collider != null) {
 			moveState = MoveState.HELD;
 		}
