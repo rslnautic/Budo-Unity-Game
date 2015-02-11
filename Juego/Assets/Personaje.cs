@@ -71,6 +71,7 @@ public class Personaje : MonoBehaviour {
 		//moveState es el estado en el que esta el jugador, puede estar en el suelo(HELD), saltando(JUMPING),
 		//o cayendo(FALLING)
 		Vector2 verticalMovement = Vector2.zero;
+
 		switch (moveState) {
 		case MoveState.HELD:
 			factor = holdingFactor;
