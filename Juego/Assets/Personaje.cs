@@ -10,6 +10,8 @@ public class Personaje : MonoBehaviour {
 	public float aceleracionInversa= 7;
 	public float frenado = 12;
 
+	bool lookingRight = true;
+
 	float xlateralcurveposition = 0.5f;
 	//RaycastHit2D hit;
 	
@@ -24,11 +26,8 @@ public class Personaje : MonoBehaviour {
 	
 	}
 	
+	public GameObject bala;
 	// Update is called once per frame
-	void Update () {
-
-
-	}
 	enum MoveState {HELD,JUMPING,FALLING}
 	
 	MoveState moveState = MoveState.FALLING;	
@@ -51,6 +50,9 @@ public class Personaje : MonoBehaviour {
 	float fallHoldTime =0.15f;
 
 	void FixedUpdate() {
+
+		SetLookingDirection ();
+
 		//static RaycastHit2D Raycast(Vector2 origin, Vector2 direction, float distance = Mathf.Infinity, int layerMask = DefaultRaycastLayers, float minDepth = -Mathf.Infinity, float maxDepth = Mathf.Infinity);
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, .55f, groundLayers);
 		if (hit.collider != null) {
@@ -121,16 +123,56 @@ public class Personaje : MonoBehaviour {
 			} else {
 				direction =frenado;
 			}
-		}
-		Mathf.Clamp (xlateralcurveposition,-1,1);   // Limita los valores minimos y maximos de una curva	
+		}   // Limita los valores minimos y maximos de una curva	
 		xlateralcurveposition += direction * Time.deltaTime * factor;
+		
+
 		if (frenando) {
 			if(xlateralcurveposition > 0.5f && direction >0 || xlateralcurveposition < 0.5f && direction <0)
 			{
 				xlateralcurveposition = 0.5f;
 			}
 		}	
+		xlateralcurveposition = Mathf.Clamp (xlateralcurveposition,0,1);
+		CheckShooting ();
+
 		float lateralspeed = XCurve.Evaluate (xlateralcurveposition);
 		rigidbody2D.velocity = (Vector2.right * maxSpeed * lateralspeed) - verticalMovement;
+	}
+
+	public AnimationCurve recoil ;
+	public float recoilMagnitude;
+	
+	void CheckShooting () {
+		if (GameInput.shootingP1) {
+			GameObject baladisparada = (GameObject)Instantiate (bala, bala.transform.position, bala.transform.rotation); 
+			baladisparada.SetActive (true);
+			SetRecoil(recoil, recoilMagnitude);
+		}
+	}
+
+	public void SetRecoil(AnimationCurve r, float m){
+		float normalized = Mathf.Abs ((xlateralcurveposition - 0.5f) / 0.5f);
+		float rec = r.Evaluate (normalized)*m;
+
+		if (lookingRight) {
+			xlateralcurveposition -= rec;
+		} else {
+			xlateralcurveposition += rec;
+		}
+	}
+
+	void SetLookingDirection(){
+		if (GameInput.xMovementP1 > 0.2f) {
+			lookingRight = true;		
+		}
+		if (GameInput.xMovementP1 < -0.2f) {
+			lookingRight = false;		
+		}
+		if (lookingRight) {
+			transform.localEulerAngles = new Vector3 (0, 0, 0);
+		} else {
+			transform.localEulerAngles = new Vector3 (0, 180, 0);
+		}
 	}
 }
