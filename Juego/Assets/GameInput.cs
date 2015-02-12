@@ -9,6 +9,10 @@ public class GameInput : MonoBehaviour {
 	public static float yAimP1;
 	public static bool shootingP1;
 
+	static public float ejeX;
+	static public float ejeY;
+	static public float ejeXDisparo, ejeYDisparo;
+
 
 
 	readonly KeyCode leftP1 = KeyCode.A;
@@ -44,5 +48,12 @@ public class GameInput : MonoBehaviour {
 		} else {
 			shootingP1 = false;
 		}
+
+
+		ejeX = Input.GetAxis ("Horizontal");
+		ejeY = Input.GetAxis ("Vertical");
+		ejeXDisparo = Input.GetAxis ("HorizontalAim");
+		ejeYDisparo = Input.GetAxis ("VerticalAim");
+
 	}
 }
