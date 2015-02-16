@@ -25,8 +25,6 @@ public class Personaje : MonoBehaviour {
 	void Start () {
 	
 	}
-	
-	public GameObject bala;
 	// Update is called once per frame
 	enum MoveState {HELD,JUMPING,FALLING}
 	
@@ -48,6 +46,9 @@ public class Personaje : MonoBehaviour {
 
 	float fallHoldTimer = 0;
 	float fallHoldTime =0.15f;
+
+	public Gun weapon;
+	public Transform hand;
 
 	void FixedUpdate() {
 
@@ -134,27 +135,17 @@ public class Personaje : MonoBehaviour {
 			}
 		}	
 		xlateralcurveposition = Mathf.Clamp (xlateralcurveposition,0,1);
-		CheckShooting ();
+		weapon.CheckShooting ();
 
 		float lateralspeed = XCurve.Evaluate (xlateralcurveposition);
 		rigidbody2D.velocity = (Vector2.right * maxSpeed * lateralspeed) - verticalMovement;
 	}
 
-	public AnimationCurve recoil ;
-	public float recoilMagnitude;
 	
-	void CheckShooting () {
-		if (GameInput.shootingP1) {
-			GameObject baladisparada = (GameObject)Instantiate (bala, bala.transform.position, bala.transform.rotation); 
-			baladisparada.SetActive (true);
-			SetRecoil(recoil, recoilMagnitude);
-		}
-	}
-
 	public void SetRecoil(AnimationCurve r, float m){
 		float normalized = Mathf.Abs ((xlateralcurveposition - 0.5f) / 0.5f);
 		float rec = r.Evaluate (normalized)*m;
-
+		
 		if (lookingRight) {
 			xlateralcurveposition -= rec;
 		} else {
