@@ -27,8 +27,9 @@ public class Personaje : MonoBehaviour {
 	}
 	// Update is called once per frame
 	enum MoveState {HELD,JUMPING,FALLING}
-	
-	MoveState moveState = MoveState.FALLING;	
+	public enum Pjs {PJ1,PJ2}
+	MoveState moveState = MoveState.FALLING;
+	public Pjs charact;
 	
 	public AnimationCurve jumpSpeedCurve;
 	public float jumpTime = 0.5f;
@@ -48,6 +49,7 @@ public class Personaje : MonoBehaviour {
 	float fallHoldTime =0.15f;
 
 	public Gun weapon;
+	
 	public Transform hand;
 
 	void FixedUpdate() {
@@ -66,7 +68,7 @@ public class Personaje : MonoBehaviour {
 			}
 		}
 
-		if(GameInput.jumpP1 && moveState == MoveState.HELD){
+		if(GameInput.GetPlayerJump(charact) && moveState == MoveState.HELD){
 			jumpTimer = 0;
 			moveState = MoveState.JUMPING;
 		}
@@ -109,8 +111,8 @@ public class Personaje : MonoBehaviour {
 		
 		float direction = 0;
 		bool frenando = false;
-		if (GameInput.xMovementP1 > 0.1f || GameInput.xMovementP1 < -0.1f) {
-			direction = GameInput.xMovementP1;
+		if (GameInput.GetPlayerXMovement(charact) > 0.1f || GameInput.GetPlayerXMovement(charact) < -0.1f) {
+			direction = GameInput.GetPlayerXMovement(charact);
 			if(direction>0 && xlateralcurveposition >0.5f || direction < 0 && xlateralcurveposition <0.5f){
 				direction*=aceleracion;
 			} else {
@@ -124,7 +126,8 @@ public class Personaje : MonoBehaviour {
 			} else {
 				direction =frenado;
 			}
-		}   // Limita los valores minimos y maximos de una curva	
+		}
+		// Limita los valores minimos y maximos de una curva	
 		xlateralcurveposition += direction * Time.deltaTime * factor;
 		
 
@@ -154,11 +157,10 @@ public class Personaje : MonoBehaviour {
 	}
 
 	void SetLookingDirection(){
-		if (GameInput.xMovementP1 > 0.2f) {
+		if (GameInput.GetPlayerXMovement (charact) > 0.2f) {
 			lookingRight = true;		
-		}
-		if (GameInput.xMovementP1 < -0.2f) {
-			lookingRight = false;		
+		} else if (GameInput.GetPlayerXMovement (charact) < -0.2f) {
+			lookingRight = false;
 		}
 		if (lookingRight) {
 			transform.localEulerAngles = new Vector3 (0, 0, 0);

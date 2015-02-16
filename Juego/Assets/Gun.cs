@@ -12,10 +12,10 @@ public class Gun : MonoBehaviour {
 
 	public Collider2D trigger;
 
-	Personaje character;
+	public Personaje character;
 	
 	public void CheckShooting () {
-		if (GameInput.shootingP1) {
+		if (GameInput.GetPlayerShooting(character.charact)) {
 			GameObject baladisparada = (GameObject)Instantiate (bala, bala.transform.position, bala.transform.rotation); 
 			baladisparada.SetActive (true);
 			character.SetRecoil(recoil, recoilMagnitude);
