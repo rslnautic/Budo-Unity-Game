@@ -103,7 +103,7 @@ public class GameInput : MonoBehaviour {
 			jumpP1 = false;
 		}
 
-		if (Input.GetKeyDown (shootP1)) {
+		if (Input.GetKey (shootP1)) {
 			shootingP1 = true;
 		} else {
 			shootingP1 = false;
@@ -128,7 +128,7 @@ public class GameInput : MonoBehaviour {
 		}
 
 		//P1
-		if (Input.GetKeyDown (shootP1)) {
+		if (Input.GetKey (shootP1)) {
 			shootingP2 = true;
 		} else {
 			shootingP2 = false;

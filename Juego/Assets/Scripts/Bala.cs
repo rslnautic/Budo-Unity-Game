@@ -7,6 +7,8 @@ public class Bala : MonoBehaviour {
 	void Start () {
 		
 	}
+
+	public int damage;
 	
 	public float velocidad = 5;
 	
@@ -24,4 +26,14 @@ public class Bala : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 	}*/
+
+	//coll.gameObject.GetComponent<Personaje> ().Die();
+
+	void OnTriggerEnter2D(Collider2D coll){
+		if (coll.gameObject.GetComponent<Personaje> () != null) {
+			coll.gameObject.GetComponent<Personaje> ().vida -= damage;
+			TimeController.HitStop();
+			Destroy (this.gameObject);
+		}
+	}
 }

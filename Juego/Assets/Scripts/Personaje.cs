@@ -10,6 +10,8 @@ public class Personaje : MonoBehaviour {
 	public float aceleracionInversa= 7;
 	public float frenado = 12;
 
+	public int vida = 10;
+
 	bool lookingRight = true;
 
 	float xlateralcurveposition = 0.5f;
@@ -51,10 +53,13 @@ public class Personaje : MonoBehaviour {
 	public Gun weapon;
 	
 	public Transform hand;
+	public Transform visualCharacter;
 
 	void FixedUpdate() {
 
+		setLayer ();
 		SetLookingDirection ();
+		checkLife ();
 
 		//static RaycastHit2D Raycast(Vector2 origin, Vector2 direction, float distance = Mathf.Infinity, int layerMask = DefaultRaycastLayers, float minDepth = -Mathf.Infinity, float maxDepth = Mathf.Infinity);
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, .55f, groundLayers);
@@ -138,6 +143,7 @@ public class Personaje : MonoBehaviour {
 			}
 		}	
 		xlateralcurveposition = Mathf.Clamp (xlateralcurveposition,0,1);
+		if(weapon != null)
 		weapon.CheckShooting ();
 
 		float lateralspeed = XCurve.Evaluate (xlateralcurveposition);
@@ -163,9 +169,53 @@ public class Personaje : MonoBehaviour {
 			lookingRight = false;
 		}
 		if (lookingRight) {
-			transform.localEulerAngles = new Vector3 (0, 0, 0);
+			visualCharacter.localEulerAngles = new Vector3 (0, 0, 0);
 		} else {
-			transform.localEulerAngles = new Vector3 (0, 180, 0);
+			visualCharacter.localEulerAngles = new Vector3 (0, 180, 0);
 		}
+	}
+
+	void checkLife(){
+		if (vida <= 0) 
+		{
+			Destroy (this.gameObject);
+		}
+		switch (charact) {
+		case Personaje.Pjs.PJ1:
+			vida1 = vida;
+			break;
+		case Personaje.Pjs.PJ2:
+			vida2 = vida;
+			break;
+		default:
+			break;
+		}
+	}
+
+	static int vida1;
+	static int vida2;
+
+	public static int GetVida(Personaje.Pjs p){
+		switch (p) {
+		case Personaje.Pjs.PJ1:
+			return vida1;
+			break;
+		case Personaje.Pjs.PJ2:
+			return vida2;
+			break;
+		default:
+			return 0;
+			break;
+		}
+		
+	}
+
+	void setLayer() {
+		if(this.charact == Personaje.Pjs.PJ1){
+			this.gameObject.layer = LayerMask.NameToLayer("Player1");
+		}else{
+			this.gameObject.layer = LayerMask.NameToLayer("Player2");
+		}
+
 	}
 }
