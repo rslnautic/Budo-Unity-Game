@@ -127,11 +127,18 @@ public class Personaje : MonoBehaviour {
 
 			float fallSpeedInTime2 = fallSpeedCurve.Evaluate (fallTimer) * fallSpeed;
 			verticalMovement = Vector2.up* 0.2f * fallSpeedInTime2;
+			//visualCharacter.localEulerAngles = new Vector3 (0, -180, 0);
 
 			RaycastHit2D hitL2 = Physics2D.Raycast(transform.position, -Vector2.right, .55f, groundLayers);
 			RaycastHit2D hitR2 = Physics2D.Raycast(transform.position, Vector2.right, .55f, groundLayers);
 			if (hitL2.collider == null && hitR2.collider == null) {
 				moveState = MoveState.FALLING;
+			}
+			if(hitL2.collider != null){
+				visualCharacter.localEulerAngles = new Vector3 (0, 0, 0);
+			}
+			else if(hitR2.collider != null){
+				visualCharacter.localEulerAngles = new Vector3 (0, 180, 0);
 			}
 
 			wallJumpingRight = true;
