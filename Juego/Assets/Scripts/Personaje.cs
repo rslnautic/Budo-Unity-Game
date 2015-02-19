@@ -223,6 +223,7 @@ public class Personaje : MonoBehaviour {
 	void checkLife(){
 		if (vida <= 0) 
 		{
+			vida = 0;
 			Destroy (this.gameObject);
 		}
 		switch (charact) {

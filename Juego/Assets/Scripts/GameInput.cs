@@ -16,9 +16,13 @@ public class GameInput : MonoBehaviour {
 	 static bool shootingP2;
 
 
-	static public float ejeX;
-	static public float ejeY;
-	static public float ejeXDisparo, ejeYDisparo;
+	static public float ejeX1;
+	static public float ejeY1;
+	static public float ejeXDisparo1, ejeYDisparo1;
+
+	static public float ejeX2;
+	static public float ejeY2;
+	static public float ejeXDisparo2, ejeYDisparo2;
 
 
 
@@ -142,12 +146,44 @@ public class GameInput : MonoBehaviour {
 		}
 
 
-		ejeX = Input.GetAxis ("Horizontal");
-		ejeY = Input.GetAxis ("Vertical");
-		ejeXDisparo = Input.GetAxis ("Horizontal");
-		ejeYDisparo = Input.GetAxis ("Vertical");
+		ejeX1 = Input.GetAxis ("HorizontalJoyStick1");
+		ejeY1 = Input.GetAxis ("Vertical");
+		//ejeXDisparo1 = Input.GetAxis ("HorizontalAim1");
+		//ejeYDisparo1 = Input.GetAxis ("VirtualAim1");
 
-		xMovementP1 = Mathf.Clamp (ejeX,-1,1);
+		ejeX2 = Input.GetAxis ("HorizontalJoyStick2");
+		ejeY2 = Input.GetAxis ("Vertical");
+		//ejeXDisparo2 = Input.GetAxis ("HorizontalAim2");
+		//ejeYDisparo2 = Input.GetAxis ("VerticalAim2");
+
+		if (Input.GetAxis ("Jump1") == 1) {
+			jumpP1 = true;
+		} else {
+			jumpP1 = false;
+		}
+
+		if (Input.GetAxis ("Shoot1") == 1) {
+			shootingP1 = true;
+		} else {
+			shootingP1 = false;
+		}
+
+		if (Input.GetAxis ("Jump2") == 1) {
+			jumpP2 = true;
+		} else {
+			jumpP2 = false;
+		}
+		
+		if (Input.GetAxis ("Shoot2") == 1) {
+			shootingP2 = true;
+		} else {
+			shootingP2 = false;
+		}
+		//bool jumpesito = Input.GetAxis ("Jump");
+
+		xMovementP1 = Mathf.Clamp (ejeX1,-1,1);
+
+		xMovementP2 = Mathf.Clamp (ejeX2,-1,1);
 
 	}
 }
