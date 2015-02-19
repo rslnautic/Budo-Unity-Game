@@ -28,7 +28,7 @@ public class Personaje : MonoBehaviour {
 	
 	}
 	// Update is called once per frame
-	enum MoveState {HELD,JUMPING,FALLING}
+	enum MoveState {HELD,JUMPING,FALLING,WALL}
 	public enum Pjs {PJ1,PJ2}
 	MoveState moveState = MoveState.FALLING;
 	public Pjs charact;
@@ -46,6 +46,8 @@ public class Personaje : MonoBehaviour {
 	public float holdingFactor = 1;
 	public float jumpingFactor = 0.8f;
 	public float fallingFactor = 0.6f;
+	public bool jumpedWall = false;
+	public bool wallJumpingRight = true;
 
 	float fallHoldTimer = 0;
 	float fallHoldTime =0.15f;
@@ -98,7 +100,7 @@ public class Personaje : MonoBehaviour {
 				moveState = MoveState.FALLING;
 				fallTimer = 0;
 			}
-			if(normalizedJumpTime > 0.3 && !Input.GetKey(KeyCode.W)){
+			if(normalizedJumpTime > 0.3 && !GameInput.GetPlayerJump(charact)){
 				moveState = MoveState.FALLING;
 				fallTimer = 0;
 			}
@@ -111,6 +113,42 @@ public class Personaje : MonoBehaviour {
 			//float normalizedFallTime = fallTimer / maxFallSpeed;
 			float fallSpeedInTime = fallSpeedCurve.Evaluate (fallTimer) * fallSpeed;
 			verticalMovement = Vector2.up * fallSpeedInTime;
+			
+			RaycastHit2D hitL = Physics2D.Raycast(transform.position, -Vector2.right, .55f, groundLayers);
+			RaycastHit2D hitR = Physics2D.Raycast(transform.position, Vector2.right, .55f, groundLayers);
+			if (hitL.collider != null || hitR.collider != null) {
+				moveState = MoveState.WALL;
+			}
+			break;
+		case MoveState.WALL:
+			factor = fallingFactor;
+			if(fallTimer < 1.2)
+				fallTimer += Time.deltaTime;
+
+			float fallSpeedInTime2 = fallSpeedCurve.Evaluate (fallTimer) * fallSpeed;
+			verticalMovement = Vector2.up * fallSpeedInTime2;
+
+			RaycastHit2D hitL2 = Physics2D.Raycast(transform.position, -Vector2.right, .55f, groundLayers);
+			RaycastHit2D hitR2 = Physics2D.Raycast(transform.position, Vector2.right, .55f, groundLayers);
+			if (hitL2.collider == null && hitR2.collider == null) {
+				moveState = MoveState.FALLING;
+			}
+
+			wallJumpingRight = true;
+
+			if(hitR2.collider != null)
+				wallJumpingRight = false;
+
+			if(GameInput.GetPlayerJump(charact) && !jumpedWall){
+				//jumpedWall = true;
+				jumpTimer = 0;
+				moveState = MoveState.JUMPING;
+				if(wallJumpingRight){
+					xlateralcurveposition = 0.9f;
+				}else{
+					xlateralcurveposition = 0.1f;
+				}
+			}
 			break;
 		}
 		

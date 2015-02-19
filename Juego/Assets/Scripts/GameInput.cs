@@ -135,7 +135,7 @@ public class GameInput : MonoBehaviour {
 		}
 
 		//P2
-		if (Input.GetKeyDown (shootP2)) {
+		if (Input.GetKey (shootP2)) {
 			shootingP2 = true;
 		} else {
 			shootingP2 = false;
