@@ -144,8 +144,10 @@ public class GameInput : MonoBehaviour {
 
 		ejeX = Input.GetAxis ("Horizontal");
 		ejeY = Input.GetAxis ("Vertical");
-		ejeXDisparo = Input.GetAxis ("HorizontalAim");
-		ejeYDisparo = Input.GetAxis ("VerticalAim");
+		ejeXDisparo = Input.GetAxis ("Horizontal");
+		ejeYDisparo = Input.GetAxis ("Vertical");
+
+		xMovementP1 = Mathf.Clamp (ejeX,-1,1);
 
 	}
 }

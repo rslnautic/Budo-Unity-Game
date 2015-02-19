@@ -3,9 +3,12 @@ using System.Collections;
 
 public class Gun : MonoBehaviour {
 
+	public float startingY;
+	public float rotationSpeed = 50;
 	public GameObject bala;
 	public AnimationCurve recoil ;
 	public float recoilMagnitude;
+	public bool movement = true;
 
 	public Collider2D trigger;
 
@@ -14,6 +17,11 @@ public class Gun : MonoBehaviour {
 	float timer;
 	public float timeBetweenBullet = 10;
 	public float dispersion = 0;
+
+	public AnimationCurve upDownCurve;
+	public AnimationCurve scaleCurve;
+	public AnimationCurve deathCurve;
+	public AnimationCurve scaleDeathCurve;
 
 	public virtual void CheckShooting () {
 		if (GameInput.GetPlayerShooting(character.charact)) {
@@ -32,6 +40,10 @@ public class Gun : MonoBehaviour {
 		}
 	}
 
+	void Start () {
+		startingY = transform.localPosition.y;
+	}
+
 	void OnTriggerEnter2D(Collider2D col){
 		Personaje c = col.gameObject.GetComponent<Personaje> ();
 		if(c != null)
@@ -47,10 +59,24 @@ public class Gun : MonoBehaviour {
 		this.transform.parent = character.hand;
 		this.transform.localPosition = new Vector3 (0, 0, 0);
 		this.transform.localEulerAngles = new Vector3 (0, 0, 0);
+		movement = false;
+	}
+
+	void MovementPickUp() {
+		if (movement) {
+			transform.localPosition = new Vector3 (transform.localPosition.x, startingY + upDownCurve.Evaluate (timer), transform.localPosition.z);
+			transform.localEulerAngles = new Vector3 (transform.localEulerAngles.x, transform.localEulerAngles.y + Time.deltaTime*rotationSpeed, transform.localEulerAngles.z);
+		}
 	}
 
 	void FixedUpdate() {
-		timer += Time.deltaTime;
+		if (timer > 1) {
+			timer = 0;
+		} else {
+			timer += Time.deltaTime;
+		}
+
+		MovementPickUp ();
 
 	}
 
