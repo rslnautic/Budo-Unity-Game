@@ -135,7 +135,7 @@ public class Personaje : MonoBehaviour {
 				moveState = MoveState.FALLING;
 			}
 			if(hitL2.collider != null){
-				visualCharacter.localEulerAngles = new Vector3 (0, 0, 0);
+				visualCharacter.localEulerAngles = new Vector3 (8, 0, 0);
 			}
 			else if(hitR2.collider != null){
 				visualCharacter.localEulerAngles = new Vector3 (0, 180, 0);
