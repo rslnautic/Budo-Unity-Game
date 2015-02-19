@@ -8,7 +8,11 @@ public class PlayerUI : MonoBehaviour {
 
 	void Update(){
 		//Label.text = Time.realtimeSinceStartup + "";
-		Label.text = Personaje.GetVida (character) + "";
-
+		if (Personaje.GetVida (character) > 0) {
+			Label.text = Personaje.GetVida (character) + "";
+		} else {
+			Label.text = "Loser";	
+			Time.timeScale = 0;
+		}
 	}
 }

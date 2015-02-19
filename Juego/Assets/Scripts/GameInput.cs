@@ -35,7 +35,7 @@ public class GameInput : MonoBehaviour {
 	readonly KeyCode leftP2 = KeyCode.H;
 	readonly KeyCode rightP2 = KeyCode.K;
 	readonly KeyCode jumpsP2 = KeyCode.U;
-	readonly KeyCode shootP2 = KeyCode.B;
+	readonly KeyCode shootP2 = KeyCode.L;
 
 	// Use this for initialization
 	void Start () {

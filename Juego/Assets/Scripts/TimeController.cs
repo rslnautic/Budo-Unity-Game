@@ -19,6 +19,5 @@ public class TimeController : MonoBehaviour {
 		if ((hitStopTimer - hitStopTimerStop >= hitStopTime) && Time.timeScale < 1) {
 			Time.timeScale = 1;
 		}
-
 	}
 }
