@@ -126,7 +126,7 @@ public class Personaje : MonoBehaviour {
 				fallTimer += Time.deltaTime;
 
 			float fallSpeedInTime2 = fallSpeedCurve.Evaluate (fallTimer) * fallSpeed;
-			verticalMovement = Vector2.up * fallSpeedInTime2;
+			verticalMovement = Vector2.up* 0.2f * fallSpeedInTime2;
 
 			RaycastHit2D hitL2 = Physics2D.Raycast(transform.position, -Vector2.right, .55f, groundLayers);
 			RaycastHit2D hitR2 = Physics2D.Raycast(transform.position, Vector2.right, .55f, groundLayers);
