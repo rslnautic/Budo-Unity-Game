@@ -1,10 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../Taller/2/205/Assets/Scripts/CameraMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../Desktop/Unity/Rol a ball/Assets/PlayerController.cs">
     <Files>
-      <File FileName="../../../Taller/2/205/Assets/Scripts/GameController/HashIDs.cs" Line="27" Column="52" />
-      <File FileName="../../../Taller/2/205/Assets/Scripts/Player/PlayerMovement.cs" Line="1" Column="1" />
-      <File FileName="../../../Taller/2/205/Assets/Scripts/CameraMovement.cs" Line="26" Column="69" />
+      <File FileName="../../../Desktop/Unity/Rol a ball/Assets/PlayerController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

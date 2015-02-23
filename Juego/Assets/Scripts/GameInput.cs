@@ -39,6 +39,15 @@ public class GameInput : MonoBehaviour {
 	
 	}
 
+
+	/*public static float GetRightJoyStickH () {
+
+	}
+
+	public static float GetRightJoyStickV () {
+		
+	}*/
+
 	public static bool GetPlayerJump(Personaje.Pjs p){
 		switch (p) {
 		case Personaje.Pjs.PJ1:
