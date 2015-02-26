@@ -1,8 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../Desktop/Unity/Rol a ball/Assets/PlayerController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Personaje.cs">
     <Files>
-      <File FileName="../../../Desktop/Unity/Rol a ball/Assets/PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Personaje.cs" Line="61" Column="2" />
+      <File FileName="Assets/Scripts/Gun.cs" Line="51" Column="4" />
+      <File FileName="Assets/Scripts/GameInput.cs" Line="104" Column="2" />
+      <File FileName="Assets/Scripts/Bala.cs" Line="10" Column="22" />
+      <File FileName="Assets/Scripts/Arm.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Platform.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerUI.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/TimeController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -9,9 +9,7 @@ public class Gun : MonoBehaviour {
 	public AnimationCurve recoil ;
 	public float recoilMagnitude;
 	public bool movement = true;
-
 	public Collider2D trigger;
-
 	public Personaje character;
 
 	float timer;
@@ -19,9 +17,6 @@ public class Gun : MonoBehaviour {
 	public float dispersion = 0;
 
 	public AnimationCurve upDownCurve;
-	public AnimationCurve scaleCurve;
-	public AnimationCurve deathCurve;
-	public AnimationCurve scaleDeathCurve;
 
 	public virtual void CheckShooting () {
 		if (GameInput.GetPlayerShooting(character.charact)) {
@@ -75,10 +70,6 @@ public class Gun : MonoBehaviour {
 		} else {
 			timer += Time.deltaTime;
 		}
-
 		MovementPickUp ();
-
 	}
-
-
 }

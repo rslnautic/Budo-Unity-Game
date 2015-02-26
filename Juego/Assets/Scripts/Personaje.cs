@@ -53,15 +53,35 @@ public class Personaje : MonoBehaviour {
 	float fallHoldTime =0.15f;
 
 	public Gun weapon;
-	
+
+	public Transform arm;
 	public Transform hand;
 	public Transform visualCharacter;
+
+
+	public float armRotationSpeed = 60;
+
+	float currentAngles = 0;
+
+	void SetArmRotation() {
+		float desiredRight = GameInput.GetRX(charact);
+		float desiredUp = GameInput.GetRY(charact);
+		float desiredangles = Vector3.Angle (new Vector3 (desiredRight, desiredUp, 0), Vector3.right);
+		if (desiredUp > 0.1f || desiredRight > 0.1f || desiredUp < -0.1f || desiredRight < -0.1f  ) {
+			if (desiredUp < 0) {
+				desiredangles = 360 - desiredangles;
+			}
+			currentAngles = Mathf.Lerp (currentAngles, desiredangles, armRotationSpeed * Time.deltaTime);
+			arm.eulerAngles = new Vector3 (0, 0, currentAngles);
+		} 
+	}
 
 	void FixedUpdate() {
 
 		setLayer ();
 		SetLookingDirection ();
 		checkLife ();
+		SetArmRotation ();
 
 		//static RaycastHit2D Raycast(Vector2 origin, Vector2 direction, float distance = Mathf.Infinity, int layerMask = DefaultRaycastLayers, float minDepth = -Mathf.Infinity, float maxDepth = Mathf.Infinity);
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, .55f, groundLayers);
@@ -208,13 +228,14 @@ public class Personaje : MonoBehaviour {
 	}
 
 	void SetLookingDirection(){
-		if (GameInput.GetPlayerXMovement (charact) > 0.2f) {
+		if (GameInput.GetRX (charact) > 0.2f || (GameInput.GetRX (charact) < 0.2f && GameInput.GetRX (charact) > -0.2f && GameInput.GetPlayerXMovement (charact) > 0.2f)) {
 			lookingRight = true;		
-		} else if (GameInput.GetPlayerXMovement (charact) < -0.2f) {
+		} else if (GameInput.GetRX (charact) < -0.2f || (GameInput.GetRX (charact) < 0.2f && GameInput.GetRX (charact) > -0.2f && GameInput.GetPlayerXMovement (charact) < -0.2f)) {
 			lookingRight = false;
 		}
 		if (lookingRight) {
 			visualCharacter.localEulerAngles = new Vector3 (0, 0, 0);
+
 		} else {
 			visualCharacter.localEulerAngles = new Vector3 (0, 180, 0);
 		}

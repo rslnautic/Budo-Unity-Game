@@ -28,7 +28,6 @@ GameObject:
   - 33: {fileID: 3392514}
   - 23: {fileID: 2392514}
   - 114: {fileID: 11492514}
-  - 114: {fileID: 11492512}
   - 61: {fileID: 6192512}
   m_Layer: 0
   m_Name: bala
@@ -168,19 +167,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
---- !u!114 &11492512
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 192514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4753257658cd74f7688f6679a12c57bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  velocidad: 12
 --- !u!114 &11492514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  velocidad: 12
+  speed: 15
 --- !u!114 &11492516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -247,21 +233,6 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  scaleCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  deathCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  scaleDeathCurve:
-    serializedVersion: 2
-    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
 --- !u!1001 &100100000
