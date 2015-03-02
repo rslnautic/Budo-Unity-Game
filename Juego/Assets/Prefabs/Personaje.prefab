@@ -638,7 +638,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9aed7d69a73e4e1da3c72b78e85d863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 60
 --- !u!114 &11420192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -685,6 +684,28 @@ MonoBehaviour:
   aceleracionInversa: 3
   frenado: 1.27999997
   vida: 100
+  startingY: 0
+  deathSpeed: 1
+  deathCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: .736132741
+      outSlope: .736132741
+      tangentMode: 0
+    - time: .197179675
+      value: .0599243753
+      inSlope: -.00540962862
+      outSlope: -.00540962862
+      tangentMode: 0
+    - time: 1
+      value: -1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   charact: 0
   jumpSpeedCurve:
     serializedVersion: 2
@@ -739,8 +760,12 @@ MonoBehaviour:
   jumpedWall: 0
   wallJumpingRight: 1
   weapon: {fileID: 0}
+  arm: {fileID: 420200}
   hand: {fileID: 420192}
   visualCharacter: {fileID: 420202}
+  armRotationSpeed: 50
+  dying: 0
+  deathDistance: 50
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

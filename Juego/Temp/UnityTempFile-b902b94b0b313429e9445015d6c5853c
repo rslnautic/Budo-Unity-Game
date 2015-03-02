@@ -41,8 +41,10 @@
 -define:ENABLE_PROFILER
 -define:UNITY_EDITOR
 -define:UNITY_EDITOR_OSX
+'Assets/CameraDeathTrigger.cs'
 'Assets/Scripts/Arm.cs'
 'Assets/Scripts/Bala.cs'
+'Assets/Scripts/CameraController.cs'
 'Assets/Scripts/GameInput.cs'
 'Assets/Scripts/Gun.cs'
 'Assets/Scripts/Personaje.cs'
