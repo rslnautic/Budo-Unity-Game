@@ -1,29 +1,3 @@
 Base path: /Applications/Unity/Unity.app/Contents
-Pipe name: \\.\pipe\UnityShaderCompiler-1--1597881900
+Pipe name: \\.\pipe\UnityShaderCompiler-1--1599626796
 Cmd: getPlatforms
-Cmd: preprocess
-  insize=22217 outsize=4216 ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=17343 outsize=2557 kw=WATER_DISPLACEMENT_ON EDGEBLEND_ON REFRACTION_MASK_ON RT_REFLECTION_ON ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=17343 outsize=2003 kw=WATER_DISPLACEMENT_ON EDGEBLEND_ON REFRACTION_MASK_ON RT_REFLECTION_ON ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=17353 outsize=2557 kw=WATER_DISPLACEMENT_ON EDGEBLEND_ON REFRACTION_MASK_ON RT_REFLECTION_ON ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=17353 outsize=1771 kw=WATER_DISPLACEMENT_ON EDGEBLEND_ON REFRACTION_MASK_ON RT_REFLECTION_ON ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=17148 outsize=2553 kw=WATER_DISPLACEMENT_ON EDGEBLEND_ON RT_REFLECTION_ON ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=17148 outsize=1726 kw=WATER_DISPLACEMENT_ON EDGEBLEND_ON RT_REFLECTION_ON ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=17095 outsize=2553 kw=WATER_DISPLACEMENT_ON EDGEBLEND_ON ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=17095 outsize=1195 kw=WATER_DISPLACEMENT_ON EDGEBLEND_ON ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=17043 outsize=2553 kw=WATER_DISPLACEMENT_ON ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=17043 outsize=1012 kw=WATER_DISPLACEMENT_ON ok=1
-Cmd: preprocess
-  insize=532 outsize=532 ok=1
-Cmd: preprocess
-  insize=532 outsize=532 ok=1
