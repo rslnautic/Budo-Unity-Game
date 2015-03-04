@@ -1,0 +1,15 @@
+# OS X only:
+.DS_Store
+*.swp
+*.Trashes 
+
+# All platforms:
+/Library
+/Temp
+/obj
+*.csproj
+*.pidb
+*.unityproj
+*.sln
+*.userprefs
+*.suo
