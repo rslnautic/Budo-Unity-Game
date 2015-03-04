@@ -4,7 +4,7 @@ using System.Collections;
 public class Bala : MonoBehaviour {
 
 	public int damage;
-	public float speed = 5;
+	public float speed = 2;
 
 	void Update () {
 		MoveBullet (speed);

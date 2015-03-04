@@ -44,9 +44,8 @@ public class lavaController : MonoBehaviour {
 	}*/
 	void OnTriggerEnter2D(Collider2D coll){
 		if (coll.gameObject.GetComponent<Personaje> () != null) {
-			//coll.gameObject.GetComponent<Personaje> ().vida -= damage;
-			//TimeController.HitStop ();
-			Destroy (this.gameObject);
+			coll.gameObject.GetComponent<Personaje> ().vida -= 100000000;
+			TimeController.HitStop ();
 		}  
 	}
 }

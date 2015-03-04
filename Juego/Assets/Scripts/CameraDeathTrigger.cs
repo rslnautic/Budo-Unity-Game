@@ -12,4 +12,12 @@ public class CameraDeathTrigger : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	void OnTriggerEnter2D(Collider2D coll){
+		if (coll.gameObject.GetComponent<Personaje> () != null) {
+				coll.gameObject.GetComponent<Personaje> ().vida -= 100;
+				//TimeController.HitStop ();
+				//Destroy (this.gameObject);
+		} 
+	}
 }
