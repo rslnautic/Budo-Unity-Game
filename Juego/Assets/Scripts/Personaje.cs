@@ -68,6 +68,13 @@ public class Personaje : MonoBehaviour {
 
 	float currentAngles = 0;
 
+	public Animator anim;             
+	private HashIDs hash;
+
+	void Awake ()
+	{
+	}
+
 	void SetArmRotation() {
 		float desiredRight = GameInput.GetRX(charact);
 		float desiredUp = GameInput.GetRY(charact);
@@ -220,6 +227,8 @@ public class Personaje : MonoBehaviour {
 			float lateralspeed = XCurve.Evaluate (xlateralcurveposition);
 			rigidbody2D.velocity = (Vector2.right * maxSpeed * lateralspeed) - verticalMovement;
 		}
+		anim.SetBool(HashIDs.movementInDir, lookingRight && rigidbody2D.velocity.x > 0 );
+		anim.SetFloat(HashIDs.movementSpeed, Mathf.Abs (rigidbody2D.velocity.x));
 	}
 
 	

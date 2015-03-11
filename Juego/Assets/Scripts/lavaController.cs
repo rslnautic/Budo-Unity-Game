@@ -19,8 +19,7 @@ public class lavaController : MonoBehaviour {
 		MovementBounce ();
 		lavaTimer += Time.deltaTime;
 		if (lavaTimer > lavaTime) {
-			transform.position += transform.up * 1.15f * Time.deltaTime;
-			startingY += 0.55f * Time.deltaTime;
+			startingY += .15f * Time.deltaTime;
 		}
 
 	}	

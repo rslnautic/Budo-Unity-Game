@@ -683,7 +683,7 @@ MonoBehaviour:
   aceleracion: .5
   aceleracionInversa: 3
   frenado: 1.27999997
-  vida: 1
+  vida: 20
   startingY: 0
   deathSpeed: 1
   deathCurve:
@@ -764,6 +764,7 @@ MonoBehaviour:
   hand: {fileID: 494328}
   visualCharacter: {fileID: 494338}
   armRotationSpeed: 50
+  anim: {fileID: 0}
   dying: 0
   deathDistance: 50
 --- !u!1001 &100100000
