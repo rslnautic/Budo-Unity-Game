@@ -11,7 +11,7 @@ GameObject:
   - 198: {fileID: 19830892}
   - 199: {fileID: 19930892}
   m_Layer: 0
-  m_Name: shootEffect
+  m_Name: shootBazokaEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,8 +77,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.36733341, y: .300000519, z: .0233332328}
-  m_LocalScale: {x: .600000024, y: .300000012, z: .300000012}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 492514}
   m_RootOrder: 0
@@ -115,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.2559996, y: 6, z: -.649999976}
+  m_LocalPosition: {x: 27.7099991, y: 11.2399998, z: -.649999976}
   m_LocalScale: {x: .5, y: .200000003, z: .200000003}
   m_Children:
   - {fileID: 492512}
@@ -208,8 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4753257658cd74f7688f6679a12c57bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
-  speed: 15
+  damage: 8
+  speed: 16
 --- !u!114 &11492516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -243,8 +243,8 @@ MonoBehaviour:
   movement: 1
   trigger: {fileID: 5892512}
   character: {fileID: 0}
-  timeBetweenBullet: .75
-  dispersion: 0
+  timeBetweenBullet: .800000012
+  dispersion: 1
   upDownCurve:
     serializedVersion: 2
     m_Curve:
@@ -278,7 +278,7 @@ ParticleSystem:
   looping: 1
   prewarm: 0
   playOnAwake: 1
-  moveWithTransform: 1
+  moveWithTransform: 0
   InitialModule:
     enabled: 1
     startLifetime:
@@ -515,7 +515,7 @@ ParticleSystem:
     enabled: 1
     type: 4
     radius: 1
-    angle: 25
+    angle: 5
     length: 5
     boxX: 1
     boxY: 1
@@ -525,7 +525,7 @@ ParticleSystem:
     randomDirection: 0
   EmissionModule:
     enabled: 1
-    m_Type: 0
+    m_Type: 1
     rate:
       scalar: 10
       maxCurve:
@@ -776,9 +776,9 @@ ParticleSystem:
     cycles: 1
     randomRow: 1
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
-      scalar: 0
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -876,9 +876,9 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    inWorldSpace: 0
+    inWorldSpace: 1
   ForceModule:
-    enabled: 0
+    enabled: 1
     x:
       scalar: 0
       maxCurve:
@@ -978,7 +978,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    inWorldSpace: 0
+    inWorldSpace: 1
     randomizePerFrame: 0
   ExternalForcesModule:
     enabled: 0
@@ -1329,7 +1329,7 @@ ParticleSystemRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: db0e7e241a9a6448fa34a7e52b25c295, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

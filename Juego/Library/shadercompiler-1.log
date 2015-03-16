@@ -1,3 +1,65 @@
-Base path: /Applications/Unity 4/Unity 4.app/Contents
-Pipe name: \\.\pipe\UnityShaderCompiler-1--1599626796
+Base path: /Applications/Unity/Unity.app/Contents
+Pipe name: \\.\pipe\UnityShaderCompiler-1--1591098968
 Cmd: getPlatforms
+Cmd: preprocess
+  insize=4561 outsize=2374 ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=6052 outsize=1058 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=6052 outsize=626 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=4023 outsize=857 kw=POINT ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=4023 outsize=854 kw=POINT ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=6055 outsize=1058 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=6055 outsize=626 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=4025 outsize=857 kw=POINT ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=4025 outsize=854 kw=POINT ok=1
+Cmd: preprocess
+  insize=22217 outsize=4216 ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=17343 outsize=2557 kw=WATER_DISPLACEMENT_ON EDGEBLEND_ON REFRACTION_MASK_ON RT_REFLECTION_ON ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=17343 outsize=2003 kw=WATER_DISPLACEMENT_ON EDGEBLEND_ON REFRACTION_MASK_ON RT_REFLECTION_ON ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=17353 outsize=2557 kw=WATER_DISPLACEMENT_ON EDGEBLEND_ON REFRACTION_MASK_ON RT_REFLECTION_ON ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=17353 outsize=1771 kw=WATER_DISPLACEMENT_ON EDGEBLEND_ON REFRACTION_MASK_ON RT_REFLECTION_ON ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=17148 outsize=2553 kw=WATER_DISPLACEMENT_ON EDGEBLEND_ON RT_REFLECTION_ON ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=17148 outsize=1726 kw=WATER_DISPLACEMENT_ON EDGEBLEND_ON RT_REFLECTION_ON ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=17095 outsize=2553 kw=WATER_DISPLACEMENT_ON EDGEBLEND_ON ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=17095 outsize=1195 kw=WATER_DISPLACEMENT_ON EDGEBLEND_ON ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=17043 outsize=2553 kw=WATER_DISPLACEMENT_ON ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=17043 outsize=1012 kw=WATER_DISPLACEMENT_ON ok=1
+Cmd: preprocess
+  insize=532 outsize=532 ok=1
+Cmd: preprocess
+  insize=532 outsize=532 ok=1
+Cmd: preprocess
+  insize=3124 outsize=1384 ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=6809 outsize=1101 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=6809 outsize=1305 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=4750 outsize=900 kw=POINT ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=4750 outsize=1532 kw=POINT ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=4023 outsize=699 kw=DIRECTIONAL ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=4023 outsize=658 kw=DIRECTIONAL ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=4025 outsize=699 kw=DIRECTIONAL ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=4025 outsize=658 kw=DIRECTIONAL ok=1
