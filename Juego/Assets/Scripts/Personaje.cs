@@ -229,7 +229,12 @@ public class Personaje : MonoBehaviour {
 		}
 		anim.SetBool(HashIDs.movementInDir, lookingRight && rigidbody2D.velocity.x > 0 );
 		anim.SetFloat(HashIDs.movementSpeed, Mathf.Abs (rigidbody2D.velocity.x));
-		anim.SetFloat(HashIDs.jump, rigidbody2D.velocity.y);
+		if (moveState != MoveState.HELD) 
+			anim.SetFloat (HashIDs.jump, rigidbody2D.velocity.y);
+		else 
+			anim.SetFloat(HashIDs.jump, 0);
+				
+		anim.SetBool(HashIDs.held, moveState == MoveState.HELD);
 	}
 
 	

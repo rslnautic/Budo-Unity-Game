@@ -10,8 +10,6 @@ public class PlayerUI : MonoBehaviour {
 		//Label.text = Time.realtimeSinceStartup + "";
 		if (Personaje.GetVida (character) > 0) {
 			Label.text = Personaje.GetVida (character) + "";
-		} else {
-			Label.text = "Loser";
 		}
 	}
 }
