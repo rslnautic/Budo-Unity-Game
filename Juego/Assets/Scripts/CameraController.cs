@@ -25,6 +25,14 @@ public class CameraController : MonoBehaviour {
 		
 		image.CrossFadeAlpha(0,0,true);	
 	}
+
+	public AnimationCurve WarningAlphaCurve;
+	public float warningBlink;
+	float warningTimer;
+	public float deathPv;
+	public float deathPvSpeed;
+	public float deathTime;
+	float deathTimer = 0;
 	
 	// Update is called once per frame
 	void Update () {
@@ -43,6 +51,10 @@ public class CameraController : MonoBehaviour {
 				newOffset = Vector3.Lerp (transform.position, new Vector3 (p2.transform.position.x, p2.transform.position.y + verticalOffset, offset.z), Time.deltaTime * interpolationSt);
 				transform.position = newOffset;
 			}
+
+			deathTimer += Time.deltaTime;
+			float fov = Mathf.Lerp(Camera.main.fieldOfView, deathPv, deathPvSpeed * Time.deltaTime);
+			Camera.main.fieldOfView = fov;
 		}
 
 		UpdateCameraShow ();
@@ -84,14 +96,17 @@ public class CameraController : MonoBehaviour {
 			}
 		}
 
-		float fov = Camera.main.fieldOfView;
-		if (internalShow) {
-			fov = Mathf.Lerp(fov,nimfov, amm*cameraInterpolationSpeed * Time.deltaTime);
-		} else if(externalShow) {
-			fov = Mathf.Lerp(fov,maxfov, amm*cameraInterpolationSpeed * Time.deltaTime);
-		}
-		Camera.main.fieldOfView = fov;
+		if (deathTimer == 0) {
+			
+			float fov = Camera.main.fieldOfView;
+			if (internalShow) {
+				fov = Mathf.Lerp(fov,nimfov, amm*cameraInterpolationSpeed * Time.deltaTime);
+			} else if(externalShow) {
+				fov = Mathf.Lerp(fov,maxfov, amm*cameraInterpolationSpeed * Time.deltaTime);
+			}
+			Camera.main.fieldOfView = fov;
 
+		}
 
 
 
@@ -101,14 +116,17 @@ public class CameraController : MonoBehaviour {
 	public float warningHeight = 0.2f;
 
 	void DoWarning(){
-		
+
+		warningTimer += Time.deltaTime;
+		float bt = WarningAlphaCurve.Evaluate (warningTimer / warningBlink);
 		Vector3 screenPosP1 = camera.WorldToScreenPoint(p1.transform.position);
 		Vector3 screenPosP2 = camera.WorldToScreenPoint(p2.transform.position);
-		if (screenPosP1.y / Camera.main.pixelHeight < warningHeight || screenPosP2.y / Camera.main.pixelHeight < warningHeight) {
-						image.CrossFadeAlpha (1, 1,true);		
+		if ((screenPosP1.y / Camera.main.pixelHeight < warningHeight || screenPosP2.y / Camera.main.pixelHeight < warningHeight) && deathTimer == 0) {
+						image.CrossFadeAlpha (0.5f, 1,true);		
 				} else {
 			image.CrossFadeAlpha(0,1,true);		
-		}
+		} 
+		image.color = new Color (1, 1, 1, bt);
 	}
 }
 

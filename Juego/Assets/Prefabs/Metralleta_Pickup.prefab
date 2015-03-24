@@ -215,6 +215,7 @@ MonoBehaviour:
   character: {fileID: 0}
   timeBetweenBullet: .200000003
   dispersion: 2
+  ammo: 10
   upDownCurve:
     serializedVersion: 2
     m_Curve:

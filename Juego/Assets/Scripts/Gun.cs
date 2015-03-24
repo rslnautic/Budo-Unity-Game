@@ -16,6 +16,8 @@ public class Gun : MonoBehaviour {
 	public float timeBetweenBullet = 10;
 	public float dispersion = 0;
 
+	public int ammo;
+
 	public AnimationCurve upDownCurve;
 
 	public virtual void CheckShooting () {
@@ -31,6 +33,7 @@ public class Gun : MonoBehaviour {
 				}
 				character.SetRecoil(recoil, recoilMagnitude);
 				timer = 0;
+				CheckAmmo();
 			}
 		}
 	}
@@ -71,5 +74,17 @@ public class Gun : MonoBehaviour {
 			timer += Time.deltaTime;
 		}
 		MovementPickUp ();
+	}
+
+	protected virtual void CheckAmmo() {
+		ammo--;
+		if (ammo <= 0) {
+			Disable();
+		}
+	}
+
+	public void Disable() {
+		character.weapon = null;
+		Destroy (this.gameObject);
 	}
 }

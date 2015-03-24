@@ -14,11 +14,10 @@ public class Bala : MonoBehaviour {
 		if (coll.gameObject.GetComponent<Personaje> () != null) {
 				coll.gameObject.GetComponent<Personaje> ().vida -= damage;
 				TimeController.HitStop ();
-				Destroy (this.gameObject);
+				Explode();
 		} 
-
-		if (coll.gameObject.tag == "Platforms") {
-			Destroy (this.gameObject);
+		if (coll.gameObject.layer == LayerMask.NameToLayer("Ground")) {
+			Explode();
 		}
 	}
 
@@ -27,5 +26,9 @@ public class Bala : MonoBehaviour {
 		if (transform.position.x > 300) {
 			Destroy (this.gameObject);		
 		}
+	}
+
+	public void Explode() {
+		Destroy (this.gameObject);
 	}
 }

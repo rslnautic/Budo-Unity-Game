@@ -266,23 +266,25 @@ public class Personaje : MonoBehaviour {
 	public bool dying = false;
 
 	void checkLife(){
-		if (vida <= 0 && !dying) {
-			vida = 0;
-			Die ();
-			//Destroy (this.gameObject);
-		} else if(dying){
-			timer += Time.deltaTime * deathSpeed;
-			transform.localPosition = new Vector3 (transform.localPosition.x, startingY + deathCurve.Evaluate (timer)*deathDistance, transform.localPosition.z);
-		}
-		switch (charact) {
-		case Personaje.Pjs.PJ1:
-			vida1 = vida;
-			break;
-		case Personaje.Pjs.PJ2:
-			vida2 = vida;
-			break;
-		default:
-			break;
+		if(charact == Pjs.PJ1 && !FlowController.invulnerableP1 || charact == Pjs.PJ2 && !FlowController.invulnerableP2) {
+			if(vida <= 0 && !dying) {
+				vida = 0;
+				Die ();
+				//Destroy (this.gameObject);
+			} else if(dying){
+				timer += Time.deltaTime * deathSpeed;
+				transform.localPosition = new Vector3 (transform.localPosition.x, startingY + deathCurve.Evaluate (timer)*deathDistance, transform.localPosition.z);
+			}
+			switch (charact) {
+			case Personaje.Pjs.PJ1:
+				vida1 = vida;
+				break;
+			case Personaje.Pjs.PJ2:
+				vida2 = vida;
+				break;
+			default:
+				break;
+			}
 		}
 	}
 
@@ -312,6 +314,7 @@ public class Personaje : MonoBehaviour {
 		    dying = true;
 			timer = 0;
 			startingY = transform.localPosition.y;
+			FlowController.playerDied (charact);
 			//transform.localScale = new Vector3 (1, scaleDeathCurve.Evaluate (timer), 1);
 	}
 
