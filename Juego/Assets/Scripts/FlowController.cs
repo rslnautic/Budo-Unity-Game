@@ -9,11 +9,13 @@ public class FlowController : MonoBehaviour {
 		if (c == Personaje.Pjs.PJ1) {
 			invulnerableP1 = false;
 			invulnerableP2 = true;
-			//PlayerUI.PrintWinner(Personaje.Pjs.PJ2);
+			EndUI._instance.PrintWinner(Personaje.Pjs.PJ2);
+			Personaje.winnp2 = true;
 		} else {
 			invulnerableP1 = true;
 			invulnerableP2 = false;
-			//PlayerUI.PrintWinner(Personaje.Pjs.PJ1);
+			EndUI._instance.PrintWinner(Personaje.Pjs.PJ1);
+			Personaje.winnp1 = true;
 		}
 	}
 
@@ -22,6 +24,8 @@ public class FlowController : MonoBehaviour {
 		Time.timeScale = 1;
 		invulnerableP1 = false;
 		invulnerableP2 = false;
+		Personaje.winnp1 = false;
+		Personaje.winnp2 = false;
 	}
 	
 	// Update is called once per frame

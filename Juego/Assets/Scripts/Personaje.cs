@@ -72,6 +72,9 @@ public class Personaje : MonoBehaviour {
 	public Animator anim;             
 	private HashIDs hash;
 
+	public static bool winnp1 = false;
+
+	public static bool winnp2 = false;
 	void Awake ()
 	{
 	}
@@ -109,7 +112,7 @@ public class Personaje : MonoBehaviour {
 				}
 			}
 			
-			if(GameInput.GetPlayerJump(charact) && moveState == MoveState.HELD){
+			if(GameInput.GetPlayerJumpDown(charact) && moveState == MoveState.HELD){
 				jumpTimer = 0;
 				moveState = MoveState.JUMPING;
 			}
@@ -236,6 +239,18 @@ public class Personaje : MonoBehaviour {
 			anim.SetFloat(HashIDs.jump, 0);
 				
 		anim.SetBool(HashIDs.held, moveState == MoveState.HELD);
+
+		switch (charact) {
+		case Pjs.PJ1:
+			anim.SetBool(HashIDs.win, winnp1);
+			break;
+		case Pjs.PJ2:
+			anim.SetBool(HashIDs.win, winnp2);
+			break;
+		default:
+			break;
+		}
+
 	}
 
 	

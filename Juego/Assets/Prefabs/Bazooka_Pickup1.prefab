@@ -83,7 +83,7 @@ GameObject:
   - 58: {fileID: 5808774}
   - 114: {fileID: 11408776}
   m_Layer: 13
-  m_Name: Bazooka_Pickup
+  m_Name: Bazooka_Pickup1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,7 +329,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 8
   speed: 16
-  deathBala: {fileID: 0}
 --- !u!114 &11408776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -365,6 +364,7 @@ MonoBehaviour:
   character: {fileID: 0}
   timeBetweenBullet: .800000012
   dispersion: 1
+  ammo: 0
   upDownCurve:
     serializedVersion: 2
     m_Curve:

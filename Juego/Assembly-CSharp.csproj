@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Bala.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CameraDeathTrigger.cs" />
+     <Compile Include="Assets\Scripts\EndUI.cs" />
      <Compile Include="Assets\Scripts\FlowController.cs" />
      <Compile Include="Assets\Scripts\GameInput.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />

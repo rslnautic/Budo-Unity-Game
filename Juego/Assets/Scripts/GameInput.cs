@@ -7,15 +7,17 @@ public class GameInput : MonoBehaviour {
 	static float xAimP1;
 	static float yAimP1;
 	static bool jumpP1;
+	static bool jumpDownP1;
 	static bool shootingP1;
 
 	static float xMovementP2;
 	static float xAimP2;
 	static float yAimP2;
 	static bool jumpP2;
+	static bool jumpDownP2;
 	static bool shootingP2;
 	
-	void Update () {
+	void FixedUpdate() {
 		setXmovent ();
 		setJump ();
 		setShoot ();
@@ -53,6 +55,22 @@ public class GameInput : MonoBehaviour {
 		
 	}
 
+	public static bool GetPlayerJumpDown(Personaje.Pjs p){
+		switch (p) {
+		case Personaje.Pjs.PJ1:
+			return jumpDownP1;
+			break;
+		case Personaje.Pjs.PJ2:
+			return jumpDownP2;
+			break;
+		default:
+			return false;
+			break;
+		}
+		
+	}
+
+
 	public static bool GetPlayerShooting(Personaje.Pjs p){
 		switch (p) {
 		case Personaje.Pjs.PJ1:
@@ -74,6 +92,12 @@ public class GameInput : MonoBehaviour {
 	}
 
 	public static void setJump () {
+		if (Input.GetButton ("Jump1") && jumpP1 == false) {
+			jumpDownP1 = true;
+		} else {
+			jumpDownP1 = false;
+		}
+
 		if (Input.GetButton ("Jump1")) {
 			jumpP1 = true;
 		} else {
@@ -84,6 +108,12 @@ public class GameInput : MonoBehaviour {
 			jumpP2 = true;
 		} else {
 			jumpP2 = false;
+		}
+
+		if (Input.GetButtonDown ("Jump2")) {
+			jumpDownP2 = true;
+		} else {
+			jumpDownP2 = false;
 		}
 	}
 

@@ -8,4 +8,5 @@ public class HashIDs : MonoBehaviour
 	public static int movementSpeed = Animator.StringToHash("MovementAbsolute");
 	public static int jump = Animator.StringToHash("Jump");
 	public static int held = Animator.StringToHash("inground");
+	public static int win = Animator.StringToHash("win");
 }

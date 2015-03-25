@@ -4,7 +4,6 @@ using System.Collections;
 public class PlayerUI : MonoBehaviour {
 
 	public UnityEngine.UI.Text Label;
-	public UnityEngine.UI.Text WinnerLabel;
 	public Personaje.Pjs character;
 
 	void Update(){
