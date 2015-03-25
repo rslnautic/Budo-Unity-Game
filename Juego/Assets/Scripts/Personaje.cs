@@ -67,6 +67,7 @@ public class Personaje : MonoBehaviour {
 	public float armRotationSpeed = 60;
 
 	float currentAngles = 0;
+	public float characterRecoilFactor = 1;
 
 	public Animator anim;             
 	private HashIDs hash;
@@ -240,7 +241,7 @@ public class Personaje : MonoBehaviour {
 	
 	public void SetRecoil(AnimationCurve r, float m){
 		float normalized = Mathf.Abs ((xlateralcurveposition - 0.5f) / 0.5f);
-		float rec = r.Evaluate (normalized)*m;
+		float rec = r.Evaluate (normalized)*m* characterRecoilFactor;
 		
 		if (lookingRight) {
 			xlateralcurveposition -= rec;
