@@ -30,7 +30,9 @@ public class FlowController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKeyDown (KeyCode.R /*&& (Personaje.winnp2 || Personaje.winnp1)*/)) {  
+
+		} 
 	}
 
 	

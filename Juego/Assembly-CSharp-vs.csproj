@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>/Applications/Unity 4/Unity 4.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>/Applications/Unity 4/Unity 4.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CameraDeathTrigger.cs" />
      <Compile Include="Assets\Scripts\EndUI.cs" />
+     <Compile Include="Assets\Scripts\Fade.cs" />
      <Compile Include="Assets\Scripts\FlowController.cs" />
      <Compile Include="Assets\Scripts\GameInput.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
@@ -78,7 +79,7 @@
      <None Include="Assets\FPS_Character Pack\Resources\FPS_CharacterPack_F\List\model_list_f.txt" />
      <None Include="Assets\FPS_Character Pack\Resources\FPS_CharacterPack_F\Shaders\toon_hair.shader" />
  <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity 4/Unity 4.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
