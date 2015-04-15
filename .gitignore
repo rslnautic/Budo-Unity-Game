@@ -4,9 +4,9 @@
 *.Trashes 
 
 # All platforms:
-/Library
-/Temp
-/obj
+Juego/Library
+Juego/Temp
+Juego/obj
 *.csproj
 *.pidb
 *.unityproj
