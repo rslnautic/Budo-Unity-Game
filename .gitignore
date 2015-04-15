@@ -4,6 +4,9 @@
 *.Trashes 
 
 # All platforms:
+Juego/Library
+Juego/Temp
+Juego/obj
 /Library
 /Temp
 /obj
