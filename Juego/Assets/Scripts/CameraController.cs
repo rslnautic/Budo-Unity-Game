@@ -22,7 +22,6 @@ public class CameraController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		offset = transform.position;
-		
 		image.CrossFadeAlpha(0,0,true);	
 	}
 
