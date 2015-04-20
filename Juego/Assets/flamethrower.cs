@@ -16,7 +16,7 @@ public class flamethrower : Gun {
 		if (GameInput.GetPlayerShooting (character.charact)) {
 				fuel -= Time.deltaTime;
 					//resultado = Physics2D.CircleCast(;
-			resultado.collider.gameObject.
+			//resultado.collider.gameObject.
 				if (!flames.isPlaying) {
 					flames.Play();
 				}
@@ -26,6 +26,7 @@ public class flamethrower : Gun {
 					flames.Stop();
 				}
 			}
+
 	}
 
 
