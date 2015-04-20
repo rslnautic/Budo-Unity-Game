@@ -4,7 +4,7 @@
 *.Trashes 
 
 # All platforms:
-Juego/Library
+Juego/Library/*
 Juego/Temp
 Juego/obj
 *.csproj
