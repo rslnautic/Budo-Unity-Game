@@ -116,9 +116,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uvAnimationRate1: {x: 0, y: -1}
-  textureName1: _MainTex
+  textureName1: 5f4d61696e546578
   uvAnimationRate2: {x: 0, y: -1}
-  textureName2: _BlendTex
+  textureName2: 5f426c656e64546578
   m_UVOffsetA: {x: 0, y: .0199999996}
   m_UVOffsetB: {x: 0, y: .100000001}
   temp_UVOffsetA: {x: 0, y: 0}
@@ -128,9 +128,7 @@ MonoBehaviour:
   m_DisablePixelLights: 1
   m_TextureSize: 128
   m_ClipPlaneOffset: .0700000003
-  m_ReflectLayers:
-    serializedVersion: 2
-    m_Bits: 4294967279
+  m_ReflectLayers: {}
   realtime2DReflection: 1
   autoEdgeBlend: 1
   waterDisplacement: 1
