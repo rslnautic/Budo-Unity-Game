@@ -24,6 +24,7 @@ public class Fade : MonoBehaviour {
 			image.color =  new Color(1,1,1,one);
 		}
 		if (Personaje.winnp1 || Personaje.winnp2) {
+			Debug.Log("entra");
 			begin += Time.deltaTime;
 			if(begin > beginFading){
 				timer += Time.deltaTime;
