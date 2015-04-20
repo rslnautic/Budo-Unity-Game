@@ -18,24 +18,46 @@ public class Gun : MonoBehaviour {
 
 	public int ammo;
 
+	public int gun = 1;
+
 	public AnimationCurve upDownCurve;
 
 	public virtual void CheckShooting () {
-		if (GameInput.GetPlayerShooting(character.charact)) {
-			if (timer>=timeBetweenBullet) {
-				GameObject baladisparada = (GameObject)Instantiate (bala, bala.transform.position, bala.transform.rotation); 
-				baladisparada.transform.RotateAround(baladisparada.transform.position,Vector3.forward,Random.Range(-dispersion,dispersion));
-				baladisparada.SetActive (true);
-				if(character.charact == Personaje.Pjs.PJ1){
-					baladisparada.layer = LayerMask.NameToLayer("ShotsPlayer1");
-				}else{
-					baladisparada.layer = LayerMask.NameToLayer("ShotsPlayer2");
+		if (GameInput.GetPlayerShooting (character.charact) /*&& gun == 1*/) {
+				if (timer >= timeBetweenBullet) {
+						GameObject baladisparada = (GameObject)Instantiate (bala, bala.transform.position, bala.transform.rotation); 
+						baladisparada.transform.RotateAround (baladisparada.transform.position, Vector3.forward, Random.Range (-dispersion, dispersion));
+						baladisparada.SetActive (true);
+						if (character.charact == Personaje.Pjs.PJ1) {
+								baladisparada.layer = LayerMask.NameToLayer ("ShotsPlayer1");
+						} else {
+								baladisparada.layer = LayerMask.NameToLayer ("ShotsPlayer2");
+						}
+						character.SetRecoil (recoil, recoilMagnitude);
+						timer = 0;
+						CheckAmmo ();
 				}
-				character.SetRecoil(recoil, recoilMagnitude);
-				timer = 0;
-				CheckAmmo();
+		} /*else {
+			if (timer>=timeBetweenBullet) {
+				for(int i=0;i<6;i++) {
+					GameObject baladisparada = (GameObject)Instantiate (bala, bala.transform.position, bala.transform.rotation); 
+					baladisparada.transform.RotateAround(baladisparada.transform.position,Vector3.forward,Random.Range(-dispersion,dispersion));
+					baladisparada.SetActive (true);
+
+					if(character.charact == Personaje.Pjs.PJ1){
+					baladisparada.layer = LayerMask.NameToLayer("ShotsPlayer1");
+					
+					}else{
+						baladisparada.layer = LayerMask.NameToLayer("ShotsPlayer2");
+					}
+					character.SetRecoil(recoil, recoilMagnitude);
+					timer = 0;
+					CheckAmmo();
+				}
+				
+
 			}
-		}
+		}*/
 	}
 
 	void Start () {
