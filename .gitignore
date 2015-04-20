@@ -15,6 +15,7 @@ Juego/obj
 *.suo
 Juego/Assets/Edu.unity
 Juego/Assets/Edu.unity.meta
+Juego/Library/*
 Juego/Library/ShaderCache/0/061e263ab03cdb5075d8a8d862517bc5.bin
 Juego/Library/ShaderCache/0/06616f88ed67932890ef1ea49ca42607.bin
 Juego/Library/ShaderCache/0/0dcccbdf6a43a4eba7045fe5cad7e49d.bin
