@@ -12,7 +12,7 @@ public class Gun : MonoBehaviour {
 	public Collider2D trigger;
 	public Personaje character;
 
-	float timer;
+	protected float timer;
 	public float timeBetweenBullet = 10;
 	public float dispersion = 0;
 
@@ -37,27 +37,7 @@ public class Gun : MonoBehaviour {
 						timer = 0;
 						CheckAmmo ();
 				}
-		} /*else {
-			if (timer>=timeBetweenBullet) {
-				for(int i=0;i<6;i++) {
-					GameObject baladisparada = (GameObject)Instantiate (bala, bala.transform.position, bala.transform.rotation); 
-					baladisparada.transform.RotateAround(baladisparada.transform.position,Vector3.forward,Random.Range(-dispersion,dispersion));
-					baladisparada.SetActive (true);
-
-					if(character.charact == Personaje.Pjs.PJ1){
-					baladisparada.layer = LayerMask.NameToLayer("ShotsPlayer1");
-					
-					}else{
-						baladisparada.layer = LayerMask.NameToLayer("ShotsPlayer2");
-					}
-					character.SetRecoil(recoil, recoilMagnitude);
-					timer = 0;
-					CheckAmmo();
-				}
-				
-
-			}
-		}*/
+		}
 	}
 
 	void Start () {
