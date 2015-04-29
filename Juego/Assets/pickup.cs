@@ -9,7 +9,7 @@ public class pickup : MonoBehaviour {
 	public AnimationCurve upDownCurve;
 	// Use this for initialization
 	void Start () {
-	
+		startingY = transform.position.y;
 	}
 	void MovementPickUp() {
 		if (movement) {
@@ -26,17 +26,29 @@ public class pickup : MonoBehaviour {
 		if(c != null)
 			SetUpWeapon (c);
 	}
+
+	public GameObject[] possibleSpawns;
 	
 	void SetUpWeapon(Personaje c){
-		/*trigger.enabled = false;
+		int rand = Random.Range (0, possibleSpawns.Length);
+		if (rand == possibleSpawns.Length)
+			rand = possibleSpawns.Length - 1;
+		
+		GameObject g = (GameObject)GameObject.Instantiate (possibleSpawns[rand], transform.position,transform.rotation);
+		g.transform.parent = null;
+
+		Gun gun = g.GetComponent<Gun> ();
+		gun.trigger.enabled = false;
 		if(c.weapon != null)
 			Destroy(c.weapon.gameObject);
-		c.weapon = this;
-		character = c;
-		this.transform.parent = character.hand;
-		this.transform.localPosition = new Vector3 (0, 0, 0);
-		this.transform.localEulerAngles = new Vector3 (0, 0, 0);
-		movement = false;*/
+		c.weapon = gun;
+		gun.character = c;
+		gun.transform.parent = c.hand;
+		gun.transform.localPosition = new Vector3 (0, 0, 0);
+		gun.transform.localEulerAngles = new Vector3 (0, 0, 0);
+		gun.movement = false;
+
+		Destroy (this.gameObject);
 	}
 
 	void FixedUpdate() {
