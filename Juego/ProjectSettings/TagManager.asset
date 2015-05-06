@@ -38,9 +38,17 @@ TagManager:
   User Layer 28: 
   User Layer 29: 
   User Layer 30: 
-  User Layer 31: 
+  User Layer 31: Fade
   m_SortingLayers:
   - name: Default
     userID: 0
     uniqueID: 0
+    locked: 0
+  - name: Fade
+    userID: 1
+    uniqueID: 1301718863
+    locked: 0
+  - name: Other
+    userID: 2
+    uniqueID: 3804006001
     locked: 0

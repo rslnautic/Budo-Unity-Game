@@ -91,7 +91,7 @@ public class CameraController : MonoBehaviour {
 					screenPosP1.x - (1 - externalZone) ,screenPosP1.y - (1 - externalZone),screenPosP2.x - (1 - externalZone),screenPosP2.y - (1 - externalZone)});
 				amm	= externalZone;
 				amm = dist/amm;
-				Debug.Log (amm);
+				//Debug.Log (amm);
 			}
 		}
 
