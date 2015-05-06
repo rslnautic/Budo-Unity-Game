@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.29999995, y: 24.1000004, z: 1.70000005}
+  m_LocalPosition: {x: 16, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 446644}
@@ -134,8 +134,11 @@ MonoBehaviour:
   trigger: {fileID: 5846644}
   character: {fileID: 0}
   possibleSpawns:
-  - {fileID: 192516, guid: 5183bd92541a44f3a8af8be99f7157ee, type: 2}
-  - {fileID: 173956, guid: 6e3a8ceb2ffbd41f089635eb0ee5e93d, type: 2}
+  - {fileID: 172800, guid: ad25a0f3e9c12412487bcda0b474a5d1, type: 2}
+  - {fileID: 104584, guid: c8ca5dc0183a942a4a886575aa6faf82, type: 2}
+  - {fileID: 113412, guid: 22d7a5ee6078443adb1bd5790c0a539e, type: 2}
+  - {fileID: 122326, guid: c894ba2094be647cba63417c87249107, type: 2}
+  - {fileID: 140406, guid: 4be2d1e4f19eb4da5886e2cd01d58cab, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
