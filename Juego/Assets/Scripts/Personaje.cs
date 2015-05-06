@@ -11,6 +11,7 @@ public class Personaje : MonoBehaviour {
 	public float frenado = 12;
 
 	public int vida = 10;
+	public int vidaMaxima = 10;
 
 	bool lookingRight = true;
 
@@ -77,6 +78,17 @@ public class Personaje : MonoBehaviour {
 	public static bool winnp2 = false;
 	void Awake ()
 	{
+		vida = vidaMaxima;
+		switch (charact) {
+		case Personaje.Pjs.PJ1:
+			vidamaxima1 = vidaMaxima;
+			break;
+		case Personaje.Pjs.PJ2:
+			vidamaxima2 = vidaMaxima;
+			break;
+		default:
+			break;
+		}
 	}
 
 	void SetArmRotation() {
@@ -306,6 +318,8 @@ public class Personaje : MonoBehaviour {
 
 	static int vida1;
 	static int vida2;
+	static int vidamaxima1;
+	static int vidamaxima2;
 
 	public static int GetVida(Personaje.Pjs p){
 		switch (p) {
@@ -314,6 +328,21 @@ public class Personaje : MonoBehaviour {
 			break;
 		case Personaje.Pjs.PJ2:
 			return vida2;
+			break;
+		default:
+			return 0;
+			break;
+		}
+		
+	}
+
+	public static int GetVidaMaxima(Personaje.Pjs p){
+		switch (p) {
+		case Personaje.Pjs.PJ1:
+			return vidamaxima1;
+			break;
+		case Personaje.Pjs.PJ2:
+			return vidamaxima2;
 			break;
 		default:
 			return 0;
