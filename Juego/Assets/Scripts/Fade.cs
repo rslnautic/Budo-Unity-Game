@@ -63,12 +63,14 @@ public class Fade : MonoBehaviour {
 				else if(Personaje.winnp2) rondasGanadasP2++;
 				if (rondasGanadasP1 >= 2) {
 					//gana P1
+					Application.LoadLevel (0); 
 				}
 				else if(rondasGanadasP2 >= 2) {
 					//gana P2
+					Application.LoadLevel (0); 
 				}
 				else {
-					Application.LoadLevel (0); 
+					Application.LoadLevel (1); 
 				}
 			}
 		}

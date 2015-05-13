@@ -18,11 +18,55 @@ public class CameraController : MonoBehaviour {
 	public float interpolationSt = 3;
 	public float verticalOffset = 5;
 
+	public GameObject p1Verde;
+	public GameObject p1Azul;
+	public GameObject p1Rojo;
+	
+	public GameObject p2Verde;
+	public GameObject p2Azul;
+	public GameObject p2Rojo;
+
 	public UnityEngine.UI.Image image;
 	// Use this for initialization
 	void Start () {
 		offset = transform.position;
 		image.CrossFadeAlpha(0,0,true);	
+
+		switch (MenuController.positionSelectP1) 
+		{
+		case 1:
+			p1 = p1Verde;
+			p1Verde.SetActive(true);
+			break;
+		case 2:
+			p1 = p1Azul;
+			p1Azul.SetActive(true);
+			break;
+		case 3:
+			p1 = p1Rojo;
+			p1Rojo.SetActive(true);
+			break;
+		default:
+			break;
+		}
+
+		switch (MenuController.positionSelectP2) 
+		{
+		case 1:
+			p2 = p2Verde;
+			p2Verde.SetActive(true);
+			break;
+		case 2:
+			p2 = p2Azul;
+			p2Azul.SetActive(true);
+			break;
+		case 3:
+			p2 = p2Rojo;
+			p2Rojo.SetActive(true);
+			break;
+		default:
+			break;
+		}
 	}
 
 	public AnimationCurve WarningAlphaCurve;
