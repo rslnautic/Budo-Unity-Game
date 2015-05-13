@@ -29,6 +29,8 @@ public class flamethrower : Gun {
 				if(flames.isPlaying)
 				{
 					flames.Stop();
+					character.weapon = null;
+					Destroy (this.gameObject);
 				}
 			}
 	}
